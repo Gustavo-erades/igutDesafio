@@ -26,6 +26,6 @@
 </table>
 <div>
     <?php 
-        echo $this->Html->link('novo paciente',array('controller'=>'pacientes','action'=>'new'))
+        echo $this->Html->link('novo paciente',array('controller'=>'pacientes','action'=>'new'));
     ?>
 </div>

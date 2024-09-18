@@ -12,6 +12,6 @@
             'especialidade'=>array(
                 'rule'=>'notBlank'
             )
-        )
+            );
     }
 ?>

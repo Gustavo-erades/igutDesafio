@@ -16,5 +16,5 @@
     ?>
 </p>
 <?php 
-    $this->Html->link('voltar',array('controller'=>'medicos','action'=>'index'))
+   echo $this->Html->link('voltar',array('controller'=>'medicos','action'=>'index'))
 ?>
