@@ -39,16 +39,14 @@
         ?>
     </p>
 </div>
-<div class="pagination">
-    <ul>
-        <?= $this->Paginator->first('primeiro') ?>
-        <?= $this->Paginator->prev('anterior') ?>
-        <?= $this->Paginator->next('próximo') ?>
-        <?= $this->Paginator->last('último') ?>
-    </ul>
-</div>
 <?php
-    echo $this->Js->link("novo medico", array("controller" => 'medicos', 'action' => 'new'),array('update','#content'));
-    echo "<br>";
+    if($this->Paginator->params['paging']['Medico']['pageCount']>1){
+        echo $this->element('paginacao'); 
+    }
+ ?>
+<button id="<?=$medico['Medico']['id']?>" onclick="chamada_novo_medico('<?=$medico['Medico']['id']?>')">
+    Cadastrar médico
+</button>
+<?php
     echo $this->Js->link("voltar",array('controller'=>'consultas','action'=>'index'),array('update','#content'));
 ?>

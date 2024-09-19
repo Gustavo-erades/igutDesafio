@@ -56,32 +56,20 @@
         </tr>
     <?php endforeach; ?>
 </table>
-<div class="pagination">
+<div>
     <p>
         <?=
             "página ".$this->Paginator->current()." de ".$this->Paginator->params['paging']['Consulta']['pageCount']." totais"
         ?>
     </p>
 </div>
-<div class="pagination">
-    <ul>
-        <?php 
-            if($this->Paginator->params['paging']['Consulta']['pageCount']>1){
-                echo $this->Paginator->first('primeiro');
-                echo $this->Paginator->prev('anterior');
-                echo $this->Paginator->next('próximo');
-                echo $this->Paginator->last('último');
-            }
-        ?>
-    </ul>
-</div>
+<?php
+    if($this->Paginator->params['paging']['Consulta']['pageCount']>1){
+        echo $this->element('paginacao'); 
+    }
+ ?>
 <p>
     <?php
         echo $this->Js->link('nova consulta', array('controller' => 'consultas', 'action' => 'new'),array('update'=>'#content'));
     ?>
 </p>
-<?php
-    if($this->request->is('ajax')){
-        echo $this->Js->writeBuffer();
-    }
-?>
