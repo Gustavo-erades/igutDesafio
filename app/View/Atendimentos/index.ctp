@@ -18,7 +18,6 @@
         </tr>
     <?php endforeach ?>
 </table>
-
 <?php
 echo $this->Form->create('Atendimento');
 echo $this->Form->input('nome');
