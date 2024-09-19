@@ -2,7 +2,7 @@
 <p>
     Nascimento:
     <?php 
-        echo $pacientes['Paciente']['dt_nasc']
+        echo date('d/m/Y',strtotime($pacientes['Paciente']['dt_nasc']));
     ?>
 </p>
 <p>
@@ -19,6 +19,6 @@
 </p>
 <button>
     <?php 
-        echo $this->Html->link('voltar', array('controller'=>'pacientes','action'=>'index'))
+        echo $this->Html->link('voltar', array('controller'=>'consultas','action'=>'index'))
     ?>
 </button>

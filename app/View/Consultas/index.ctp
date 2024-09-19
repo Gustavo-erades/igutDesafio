@@ -1,3 +1,17 @@
+<ul>
+    <li>
+        <?= $this->Html->link('medicos',array('controller'=>'medicos','action'=>'index')) ?>
+    </li>
+    <li>
+        <?= $this->Html->link('pacientes',array('controller'=>'pacientes','action'=>'index')) ?>
+    </li>
+    <li>
+        <?= $this->Html->link('atendimentos',array('controller'=>'atendimentos','action'=>'index')) ?>
+    </li>
+    <li>
+        <?= $this->Html->link('convenios',array('controller'=>'convenios','action'=>'index')) ?>
+    </li>
+</ul>
 <h1>Consultas já agendadas</h1>
 <hr>
 <table>
@@ -21,13 +35,13 @@
                 <?= date('H:i', strtotime($consulta['Consulta']['hora'])) ?>
             </td>
             <td>
-                <?= $consulta['Medico']['nome'] ?>
+                <?= $this->Html->link($consulta['Medico']['nome'],array('controller'=>'medicos','action'=>'view',$consulta['Consulta']['medico_id'])) ?>
             </td>
             <td>
                 <?= $consulta['Atendimento']['nome'] ?>
             </td>
             <td>
-                <?= $consulta['Paciente']['nome'] ?>
+                <?= $this->Html->link($consulta['Paciente']['nome'],array('controller'=>'pacientes','action'=>'view',$consulta['Consulta']['paciente_id'])) ?>
             </td>
             <td>
                 <?php
