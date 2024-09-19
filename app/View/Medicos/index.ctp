@@ -32,7 +32,7 @@
     ?>
 </table>
 </table>
-<div class="pagination">
+<div class="pagination2">
     <p>
         <?=
             "página ".$this->Paginator->current()." de ".$this->Paginator->params['paging']['Medico']['pageCount']." totais"

@@ -1,9 +1,13 @@
 <ul>
     <li>
-        <?= $this->Js->link('medicos',array('controller'=>'medicos','action'=>'index'),array('update'=>'#content')) ?>
+        <button onclick="chamada_medicos()">
+            Médicos
+        </button>
     </li>
     <li>
-        <?= $this->Js->link('pacientes',array('controller'=>'pacientes','action'=>'index'),array('update'=>'#content')) ?>
+        <button onclick="chamada_pacientes()">
+            Pacientes
+        </button>
     </li>
     <li>
         <?= $this->Js->link('atendimentos',array('controller'=>'atendimentos','action'=>'index'),array('update'=>'#content')) ?>

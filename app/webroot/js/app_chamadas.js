@@ -17,7 +17,19 @@ $(document).ready(function(){
         );
     });
 });
-
+function chamada_medicos(){
+    $.ajax({
+        type:'get',
+        url:'/igutDesafio/medicos/index/',
+        dataType: 'html',
+        success: function(data) {
+            $('#content').html(data); 
+        },
+        error: function() {
+            alert('Erro ao carregar as consultas.');
+        }
+    });
+} 
 function chamada_medico(id){
         var botaoId = id;
         $.ajax({
@@ -60,6 +72,19 @@ function chamada_novo_paciente(id){
         }
     })
 }
+function chamada_pacientes(){
+    $.ajax({
+        type:'get',
+        url:'/igutDesafio/pacientes/index/',
+        dataType: 'html',
+        success: function(data) {
+            $('#content').html(data); 
+        },
+        error: function() {
+            alert('Erro ao carregar as consultas.');
+        }
+    });
+} 
 function chamada_novo_medico(id){
     var botaoId=id;
     $.ajax({
