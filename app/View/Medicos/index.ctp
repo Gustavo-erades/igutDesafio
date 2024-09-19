@@ -32,6 +32,23 @@
     ?>
 </table>
 </table>
+<div class="pagination">
+    <p>
+        <?=
+            "página ".$this->Paginator->current()." de ".$this->Paginator->params['paging']['Medico']['pageCount']." totais"
+        ?>
+    </p>
+</div>
+<div class="pagination">
+    <ul>
+        <?= $this->Paginator->first('primeiro') ?>
+        <?= $this->Paginator->prev('anterior') ?>
+        <?= $this->Paginator->next('próximo') ?>
+        <?= $this->Paginator->last('último') ?>
+    </ul>
+</div>
 <?php
-echo $this->Html->link("novo medico", array("controller" => 'medicos', 'action' => 'new'));
+    echo $this->Html->link("novo medico", array("controller" => 'medicos', 'action' => 'new'));
+    echo "<br>";
+    echo $this->Html->link("voltar",array('controller'=>'consultas','action'=>'index'));
 ?>

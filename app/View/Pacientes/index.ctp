@@ -23,8 +23,25 @@
         </tr>
     <?php endforeach; ?>
 </table>
+<div class="pagination">
+    <p>
+        <?= 
+            "página ".$this->Paginator->current()." de ".$this->Paginator->params['paging']['Paciente']['pageCount']." totais"
+        ?>
+    </p>
+</div>
+<div class="pagination">
+    <ul>
+        <?= $this->Paginator->first('primeiro') ?>
+        <?= $this->Paginator->prev('anterior') ?>
+        <?= $this->Paginator->next('próximo') ?>
+        <?= $this->Paginator->last('último') ?>
+    </ul>
+</div>
 <div>
     <?php 
         echo $this->Html->link('novo paciente',array('controller'=>'pacientes','action'=>'new'));
+        echo "<br>";
+        echo $this->Html->link("voltar",array('controller'=>'consultas','action'=>'index'));
     ?>
 </div>

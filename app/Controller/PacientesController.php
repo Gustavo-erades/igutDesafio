@@ -2,7 +2,12 @@
     class PacientesController extends AppController{
         public $helpers=array('Html','Form');
         function index() {
-            $this->set('pacientes', $this->Paciente->find('all'));
+            $this->paginate=array(
+                'limit'=>5,
+                'order'=>array('Pacientes.nome'=>'ASC')
+            );
+            $pacientes=$this->paginate($this->Pacientes);
+            $this->set('pacientes', $this->paginate($this->Pacientes));
         }
         public function view($id = null) {
             $this->set('pacientes', $this->Paciente->findById($id));

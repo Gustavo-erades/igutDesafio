@@ -58,6 +58,6 @@
 </table>
 <p>
     <?php
-    echo $this->Html->link('nova consulta', array('controller' => 'consultas', 'action' => 'new'));
+        echo $this->Html->link('nova consulta', array('controller' => 'consultas', 'action' => 'new'));
     ?>
 </p>
