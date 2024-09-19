@@ -5,5 +5,5 @@
     echo $this->Form->input('crm',array('type'=>'number'));
     echo $this->Form->input('especialidade');
     echo $this->Form->end('Cadastrar médico');
-    echo $this->Html->link('voltar',array('controller'=>'medicos','action'=>'index'));
+    echo $this->Js->link('voltar',array('controller'=>'consultas','action'=>'index'),array('update','#content'));
 ?>

@@ -65,7 +65,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		//incluindo jquery para requisições assíncronas com ajax
 		echo $this->Html->script('https://code.jquery.com/jquery-3.7.1.min.js');
-		echo $this->Js->writeBuffer() 
+		echo $this->Html->script('/js/app_chamadas.js');
+		echo $this->Js->writeBuffer();
 	?>
 </body>
 </html>

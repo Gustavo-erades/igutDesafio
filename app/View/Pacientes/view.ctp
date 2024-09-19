@@ -19,6 +19,6 @@
 </p>
 <button>
     <?php 
-        echo $this->Html->link('voltar', array('controller'=>'consultas','action'=>'index'))
+        echo $this->Js->link("voltar",array('controller'=>'consultas','action'=>'index'),array('update','#content'));
     ?>
 </button>

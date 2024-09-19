@@ -6,5 +6,5 @@ echo $this->Form->input('cpf');
 echo $this->Form->input('telefone');
 echo $this->Form->input('dt_nasc',array('type'=>'text'));
 echo $this->Form->end('cadastrar');
-echo $this->Html->link('voltar',array('controller'=>'pacientes','action'=>'index'));
+echo $this->Js->link('voltar',array('controller'=>'pacientes','action'=>'index'),array('update','#content'));
 ?>

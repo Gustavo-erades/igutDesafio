@@ -34,5 +34,5 @@
 echo $this->Form->create('Convenio');
 echo $this->Form->input('nome');
 echo $this->Form->end('cadastrar novo convênio');
-echo $this->Html->link("voltar",array('controller'=>'consultas','action'=>'index'))
+echo $this->Js->link("voltar",array('controller'=>'consultas','action'=>'index'),array('update'=>'#content'));
 ?>

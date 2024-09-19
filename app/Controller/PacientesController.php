@@ -1,6 +1,6 @@
 <?php 
     class PacientesController extends AppController{
-        public $helpers=array('Html','Form');
+        public $helpers=array('Form','Js'=>array('Jquery'));
         function index() {
             $this->paginate=array(
                 'limit'=>5,
@@ -20,5 +20,5 @@
                 }
             }
         }
-        
+        public $components=array('RequestHandler');
     }

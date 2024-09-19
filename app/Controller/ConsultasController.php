@@ -3,7 +3,12 @@ class ConsultasController extends AppController
 {
     function index()
     {
-        $this->set('consultas', $this->Consulta->find('all'));
+        $this->paginate=array(
+            'limit'=>5,
+            'order'=>array('Consultas.dia','ASC')
+        );
+        $consultas=$this->paginate($this->Consultas);
+        $this->set('consultas', $this->paginate($this->Consultas));
     }
     function new()
     {

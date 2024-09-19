@@ -19,5 +19,7 @@
                 $this->redirect(array('action'=>'index'));
             }
         }
+        public $helpers=array('Js'=>array('Jquery'));
+        public $components=array('RequestHandler');
     }
 ?>

@@ -15,10 +15,9 @@
             <td><?php echo $paciente['Paciente']['telefone']; ?></td>
             <td><?php echo date('d/m/Y',strtotime($paciente['Paciente']['dt_nasc'])); ?></td>
             <td>
-                <?php echo $this->Html->link(
-                    'ver paciente',
-                    array('controller' => 'pacientes', 'action' => 'view', $paciente['Paciente']['id'])
-                ); ?>
+                 <button id="<?=$paciente['Paciente']['id']?>" onclick="chamada_paciente('<?=$paciente['Paciente']['id']?>')">
+                    <?= $paciente['Paciente']['nome'] ?>
+                </button>
             </td>
         </tr>
     <?php endforeach; ?>
@@ -40,8 +39,8 @@
 </div>
 <div>
     <?php 
-        echo $this->Html->link('novo paciente',array('controller'=>'pacientes','action'=>'new'));
+        echo $this->Js->link('novo paciente',array('controller'=>'pacientes','action'=>'new'),array('update','#content'));
         echo "<br>";
-        echo $this->Html->link("voltar",array('controller'=>'consultas','action'=>'index'));
+        echo $this->Js->link("voltar",array('controller'=>'consultas','action'=>'index'),array('update','#content'));
     ?>
 </div>

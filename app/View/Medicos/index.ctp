@@ -17,9 +17,9 @@
                 ?>
             </td>
             <td>
-                <?php
-                echo $this->Html->link($medico['Medico']['nome'], array('controller' => 'medicos', 'action' => 'view', $medico['Medico']['id']));
-                ?>
+                <button id="<?=$medico['Medico']['id']?>" onclick="chamada_medico('<?=$medico['Medico']['id']?>')">
+                    <?= $medico['Medico']['nome'] ?>
+                </button>
             </td>
             <td>
                 <?php
@@ -48,7 +48,7 @@
     </ul>
 </div>
 <?php
-    echo $this->Html->link("novo medico", array("controller" => 'medicos', 'action' => 'new'));
+    echo $this->Js->link("novo medico", array("controller" => 'medicos', 'action' => 'new'),array('update','#content'));
     echo "<br>";
-    echo $this->Html->link("voltar",array('controller'=>'consultas','action'=>'index'));
+    echo $this->Js->link("voltar",array('controller'=>'consultas','action'=>'index'),array('update','#content'));
 ?>

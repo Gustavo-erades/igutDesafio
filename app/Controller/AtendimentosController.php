@@ -1,7 +1,7 @@
 <?php
 class AtendimentosController extends AppController
 {
-    public $hrlpers = array('Html', 'Form');
+    public $helpers = array('Html', 'Form','Js'=>array('Jquery'));
     function index()
     {
         $this->set('atendimentos', $this->Atendimento->find('all'));
@@ -22,4 +22,5 @@ class AtendimentosController extends AppController
             $this->redirect(array('action'=>'index'));
         }
     }
+    public $components=array('RequestHandler');
 }

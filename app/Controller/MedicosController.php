@@ -1,7 +1,7 @@
 <?php 
     class MedicosController extends AppController{
-        public $helpers=array('Html','Form');
-       
+        public $helpers=array('Html','Form','js'=>array('Jquery'));
+     
         function index() {
 
             $this->paginate=array(
@@ -22,4 +22,5 @@
                 }
             }
         }
+        public $components=array('RequestHandler');
     }

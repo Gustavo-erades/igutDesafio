@@ -1,15 +1,15 @@
 <ul>
     <li>
-        <?= $this->Html->link('medicos',array('controller'=>'medicos','action'=>'index')) ?>
+        <?= $this->Js->link('medicos',array('controller'=>'medicos','action'=>'index'),array('update'=>'#content')) ?>
     </li>
     <li>
-        <?= $this->Html->link('pacientes',array('controller'=>'pacientes','action'=>'index')) ?>
+        <?= $this->Js->link('pacientes',array('controller'=>'pacientes','action'=>'index'),array('update'=>'#content')) ?>
     </li>
     <li>
-        <?= $this->Html->link('atendimentos',array('controller'=>'atendimentos','action'=>'index')) ?>
+        <?= $this->Js->link('atendimentos',array('controller'=>'atendimentos','action'=>'index'),array('update'=>'#content')) ?>
     </li>
     <li>
-        <?= $this->Html->link('convenios',array('controller'=>'convenios','action'=>'index')) ?>
+        <?= $this->Js->link('convenios',array('controller'=>'convenios','action'=>'index'),array('update'=>'#content')) ?>
     </li>
 </ul>
 <h1>Consultas já agendadas</h1>
@@ -41,11 +41,11 @@
                 <?= $consulta['Atendimento']['nome'] ?>
             </td>
             <td>
-                <?= $this->Html->link($consulta['Paciente']['nome'],array('controller'=>'pacientes','action'=>'view',$consulta['Consulta']['paciente_id'])) ?>
+                <?= $this->Js->link($consulta['Paciente']['nome'],array('controller'=>'pacientes','action'=>'view',$consulta['Consulta']['paciente_id']),array('update'=>'#content')) ?>
             </td>
             <td>
                 <?php
-                echo $this->Html->link('reagendar', array('controller' => 'consultas', 'action' => 'edit',$consulta['Consulta']['id']));
+                echo $this->Js->link('reagendar', array('controller' => 'consultas', 'action' => 'edit',$consulta['Consulta']['id']),array('update'=>'#content'));
                 ?>
             </td>
             <td>
@@ -56,8 +56,32 @@
         </tr>
     <?php endforeach; ?>
 </table>
+<div class="pagination">
+    <p>
+        <?=
+            "página ".$this->Paginator->current()." de ".$this->Paginator->params['paging']['Consulta']['pageCount']." totais"
+        ?>
+    </p>
+</div>
+<div class="pagination">
+    <ul>
+        <?php 
+            if($this->Paginator->params['paging']['Consulta']['pageCount']>1){
+                echo $this->Paginator->first('primeiro');
+                echo $this->Paginator->prev('anterior');
+                echo $this->Paginator->next('próximo');
+                echo $this->Paginator->last('último');
+            }
+        ?>
+    </ul>
+</div>
 <p>
     <?php
-        echo $this->Html->link('nova consulta', array('controller' => 'consultas', 'action' => 'new'));
+        echo $this->Js->link('nova consulta', array('controller' => 'consultas', 'action' => 'new'),array('update'=>'#content'));
     ?>
 </p>
+<?php
+    if($this->request->is('ajax')){
+        echo $this->Js->writeBuffer();
+    }
+?>
