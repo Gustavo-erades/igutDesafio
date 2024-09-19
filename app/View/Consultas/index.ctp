@@ -35,7 +35,7 @@
                 <?= date('H:i', strtotime($consulta['Consulta']['hora'])) ?>
             </td>
             <td>
-                <?= $this->Html->link($consulta['Medico']['nome'],array('controller'=>'medicos','action'=>'view',$consulta['Consulta']['medico_id'])) ?>
+                <?= $this->Js->link($consulta['Medico']['nome'],array('controller'=>'medicos','action'=>'view',$consulta['Consulta']['medico_id']),array('update'=>'#content')) ?>
             </td>
             <td>
                 <?= $consulta['Atendimento']['nome'] ?>

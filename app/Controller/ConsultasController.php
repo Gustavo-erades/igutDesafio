@@ -71,4 +71,7 @@ class ConsultasController extends AppController
         $convenios = $this->Consulta->Convenio->find('list', compact('fields'));
         $this->set('convenios', $convenios);
     }
+    public $helpers = array('Js' => array('Jquery'));
+    public $components=array('RequestHandler');
+
 }

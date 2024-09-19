@@ -40,12 +40,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'https://cakephp.org'); ?></h1>
 		</div>
+		<!-- div que será atualizada com o Ajax -->
 		<div id="content">
 
 			<?php echo $this->Flash->render(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
+		<!--
 		<div id="footer">
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
@@ -57,7 +59,13 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				<?php echo $cakeVersion; ?>
 			</p>
 		</div>
+			-->
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
+	<?php
+		//incluindo jquery para requisições assíncronas com ajax
+		echo $this->Html->script('https://code.jquery.com/jquery-3.7.1.min.js');
+		echo $this->Js->writeBuffer() 
+	?>
 </body>
 </html>
