@@ -9,5 +9,5 @@
     echo $this->Form->input('atendimento_id',array('type'=>'select','options'=>$atendimentos));
     echo $this->Form->input('convenio_id',array('type'=>'select','options'=>$convenios));
     echo $this->Form->end('Reagendar Consulta');
-    echo $this->Html->link('voltar',array('controller'=>'consultas','action'=>'index'));
 ?>
+<a href="#" class="voltar">Voltar</a>

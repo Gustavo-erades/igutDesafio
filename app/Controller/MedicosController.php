@@ -1,9 +1,7 @@
 <?php 
     class MedicosController extends AppController{
-        public $helpers=array('Html','Form','js'=>array('Jquery'));
-     
         function index() {
-
+            $this->layout="ajax";
             $this->paginate=array(
                 'limit'=>5,
                 'order'=>array('Medicos.nome','ASC')
@@ -15,6 +13,7 @@
             $this->set('medicos', $this->Medico->findById($id));
         }
         public function new(){
+            $this->layout="ajax";
             if ($this->request->is('post')) {
                 if ($this->Medico->save($this->request->data)) {
                     $this->Flash->success('Medico cadastrado com sucesso!');

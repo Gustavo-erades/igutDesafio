@@ -1,8 +1,9 @@
 <?php
 class ConsultasController extends AppController
 {
-    function index()
+    public function index()
     {
+        $this->layout='ajax';
         $this->paginate=array(
             'limit'=>5,
             'order'=>array('Consultas.dia','ASC')
@@ -10,8 +11,9 @@ class ConsultasController extends AppController
         $consultas=$this->paginate($this->Consultas);
         $this->set('consultas', $this->paginate($this->Consultas));
     }
-    function new()
+    public function new()
     {
+        $this->layout='ajax';
         if ($this->request->is('post')) {
             if ($this->Consulta->save($this->request->data)) {
                 $this->Flash->success('Consulta marcada!');
@@ -34,7 +36,7 @@ class ConsultasController extends AppController
         $convenios = $this->Consulta->Convenio->find('list', compact('fields'));
         $this->set('convenios', $convenios);
     }
-    function delete($id)
+    public function delete($id)
     {
         if (!$this->request->is('post')) {
             throw new BadNotAllowedException();
@@ -44,8 +46,9 @@ class ConsultasController extends AppController
             $this->redirect(array('action' => 'index'));
         }
     }
-    function edit($id = null)
+    public function edit($id = null)
     {
+        $this->layout="ajax";
         $this->set('consultas', $this->Consulta->findById($id));
 
         if (!empty($this->request->data)) {
@@ -76,7 +79,6 @@ class ConsultasController extends AppController
         $convenios = $this->Consulta->Convenio->find('list', compact('fields'));
         $this->set('convenios', $convenios);
     }
-    public $helpers = array('Js' => array('Jquery'));
     public $components=array('RequestHandler');
 
 }

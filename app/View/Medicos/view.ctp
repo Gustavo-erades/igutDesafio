@@ -15,6 +15,3 @@
         echo $medicos['Medico']['crm'];
     ?>
 </p>
-<?php 
-   echo $this->Js->link('voltar',array('controller'=>'consultas','action'=>'index'),array('update','#content'));
-?>

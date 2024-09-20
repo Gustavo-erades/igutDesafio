@@ -1,11 +1,10 @@
 <?php
 class AtendimentosController extends AppController
 {
-    public $helpers = array('Html', 'Form','Js'=>array('Jquery'));
     function index()
     {
+        $this->layout='ajax';
         $this->set('atendimentos', $this->Atendimento->find('all'));
-
         if ($this->request->is('post')) {
             if ($this->Atendimento->save($this->request->data)) {
                 $this->Flash->success('Atendimento cadastrado com sucesso!');
@@ -14,6 +13,7 @@ class AtendimentosController extends AppController
         }
     }
     function delete($id){
+        $this->layout='ajax';
         if(!$this->request->is('post')){
             throw new MethodNotAllowedException();
         }

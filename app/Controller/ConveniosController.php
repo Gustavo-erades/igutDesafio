@@ -1,8 +1,8 @@
 <?php 
     class ConveniosController extends AppController{
         function index(){
+            $this->layout='ajax';
             $this->set('convenios',$this->Convenio->find('all'));
-
             if($this->request->is('post')){
                 if($this->Convenio->save($this->request->data)){
                     $this->Flash->success('Convênio salvo com sucesso!');
@@ -11,6 +11,7 @@
             }
         }
         function delete($id){
+            $this->layout='ajax';
             if(!$this->request->is('post')){
                 throw new BadNotAllowedException();
             }
@@ -19,7 +20,6 @@
                 $this->redirect(array('action'=>'index'));
             }
         }
-        public $helpers=array('Js'=>array('Jquery'));
         public $components=array('RequestHandler');
     }
 ?>

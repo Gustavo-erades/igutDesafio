@@ -1,24 +1,6 @@
-<ul>
-    <li>
-        <button onclick="chamada_medicos()">
-            Médicos
-        </button>
-    </li>
-    <li>
-        <button onclick="chamada_pacientes()">
-            Pacientes
-        </button>
-    </li>
-    <li>
-        <?= $this->Js->link('atendimentos',array('controller'=>'atendimentos','action'=>'index'),array('update'=>'#content')) ?>
-    </li>
-    <li>
-        <?= $this->Js->link('convenios',array('controller'=>'convenios','action'=>'index'),array('update'=>'#content')) ?>
-    </li>
-</ul>
-<h1>Consultas já agendadas</h1>
+<h1 class="display-6 mt-3">Consultas já agendadas</h1>
 <hr>
-<table>
+<table class="table table-hover">
     <tr>
         <th>Id</th>
         <th>Dia</th>
@@ -26,27 +8,33 @@
         <th>Médico</th>
         <th>Tipo da consulta</th>
         <th>Paciente</th>
+        <th>Cadastrar</th>
     </tr>
     <?php foreach ($consultas as $consulta): ?>
-        <tr>
-            <td>
-                <?= $consulta['Consulta']['id'] ?>
-            </td>
-            <td>
-                <?= date('d/m/Y', strtotime($consulta['Consulta']['dia'])) ?>
-            </td>
-            <td>
-                <?= date('H:i', strtotime($consulta['Consulta']['hora'])) ?>
-            </td>
-            <td>
-                <?= $this->Js->link($consulta['Medico']['nome'],array('controller'=>'medicos','action'=>'view',$consulta['Consulta']['medico_id']),array('update'=>'#content')) ?>
-            </td>
-            <td>
-                <?= $consulta['Atendimento']['nome'] ?>
-            </td>
-            <td>
-                <?= $this->Js->link($consulta['Paciente']['nome'],array('controller'=>'pacientes','action'=>'view',$consulta['Consulta']['paciente_id']),array('update'=>'#content')) ?>
-            </td>
+    <tr>
+        <td>
+            <?= $consulta['Consulta']['id'] ?>
+        </td>
+        <td>
+            <?= date('d/m/Y', strtotime($consulta['Consulta']['dia'])) ?>
+        </td>
+        <td>
+            <?= date('H:i', strtotime($consulta['Consulta']['hora'])) ?>
+        </td>
+        <td>
+            <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" id="medicoId" data-id="<?=$consulta['Consulta']['medico_id']?>">
+                <?= $consulta['Medico']['nome'] ?>
+            </a>
+        </td>
+        <td>
+            <?= $consulta['Atendimento']['nome'] ?>
+        </td>
+        <td>
+            <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-id="<?=$consulta['Consulta']['paciente_id']?>">
+                <?= $consulta['Paciente']['nome'] ?>
+            </a>
+        </td>
+        <!--
             <td>
                 <?php
                 echo $this->Js->link('reagendar', array('controller' => 'consultas', 'action' => 'edit',$consulta['Consulta']['id']),array('update'=>'#content'));
@@ -56,14 +44,22 @@
                 <?php
                 echo $this->Form->postLink('Cancelar', array('action' => 'delete',$consulta['Consulta']['id']),array('confirm'=>'Deseja cancelar a consulta?'));
                 ?>
-            </td>
-        </tr>
+            </td>-->
+        <td>
+            <button class="btn btn-outline-secondary">
+                <img width="16" height="16" src="https://img.icons8.com/stencil/16/pencil.png" alt="pencil" />
+            </button>
+            <button class="btn btn-outline-secondary">
+                <img width="16" height="16" src="https://img.icons8.com/stencil/16/trash.png" alt="trash" />
+            </button>
+        </td>
+    </tr>
     <?php endforeach; ?>
 </table>
 <div>
-    <p>
+    <p class="d-flex flex-row-reverse">
         <?=
-            "página ".$this->Paginator->current()." de ".$this->Paginator->params['paging']['Consulta']['pageCount']." totais"
+            "página ".$this->Paginator->current()." de ".$this->Paginator->params['paging']['Consulta']['pageCount']." páginas"
         ?>
     </p>
 </div>
@@ -72,8 +68,6 @@
         echo $this->element('paginacao'); 
     }
  ?>
-<p>
-    <?php
-        echo $this->Js->link('nova consulta', array('controller' => 'consultas', 'action' => 'new'),array('update'=>'#content'));
-    ?>
-</p>
+<button class="btn btn-info text-dark mb-4" id="btnNovaConsulta">
+    Nova Consulta
+</button>
