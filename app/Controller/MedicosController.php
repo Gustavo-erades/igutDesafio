@@ -1,6 +1,6 @@
 <?php 
     class MedicosController extends AppController{
-        function index() {
+        public function index() {
             $this->layout="ajax";
             $this->paginate=array(
                 'limit'=>5,

@@ -22,7 +22,7 @@
             <?= date('H:i', strtotime($consulta['Consulta']['hora'])) ?>
         </td>
         <td>
-            <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" id="medicoId" data-id="<?=$consulta['Consulta']['medico_id']?>">
+            <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" id="<?=$consulta['Consulta']['medico_id']?>" onclick="chamada_medico(<?=$consulta['Consulta']['medico_id']?>)">
                 <?= $consulta['Medico']['nome'] ?>
             </a>
         </td>
@@ -30,7 +30,7 @@
             <?= $consulta['Atendimento']['nome'] ?>
         </td>
         <td>
-            <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-id="<?=$consulta['Consulta']['paciente_id']?>">
+            <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" id="<?=$consulta['Consulta']['paciente_id']?>" onclick="chamada_paciente(<?=$consulta['Consulta']['paciente_id']?>)">
                 <?= $consulta['Paciente']['nome'] ?>
             </a>
         </td>
@@ -68,6 +68,6 @@
         echo $this->element('paginacao'); 
     }
  ?>
-<button class="btn btn-info text-dark mb-4" id="btnNovaConsulta">
+<button class="btn btn-info text-dark mb-4" id="cadConsulta" onclick="newConsulta()">
     Nova Consulta
 </button>

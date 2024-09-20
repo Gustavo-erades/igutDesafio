@@ -13,7 +13,7 @@
             <td><?php echo $paciente['Paciente']['id']; ?></td>
             <td>
 
-                <a id="<?=$paciente['Paciente']['id']?>" onclick="chamada_paciente('<?=$paciente['Paciente']['id']?>')" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                <a href="#" id="<?=$paciente['Paciente']['id']?>" onclick="chamada_paciente('<?=$paciente['Paciente']['id']?>')" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
                     <?= $paciente['Paciente']['nome'] ?>
                 </a>
 

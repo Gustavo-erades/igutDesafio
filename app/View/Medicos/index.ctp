@@ -19,14 +19,14 @@
         </td>
         <td>
             <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                id="medicoId" data-id="<?=$medico['Medico']['id']?>">
+            id="<?=$medico['Medico']['id']?>" onclick="chamada_medico(<?=$medico['Medico']['id']?>)">
                 <?= $medico['Medico']['nome'] ?>
             </a>
         </td>
         <td>
             <?php
                 echo $medico['Medico']['especialidade'];
-                ?>
+            ?>
         </td>
         <td>
             <button class="btn btn-outline-secondary">
@@ -54,6 +54,6 @@
         echo $this->element('paginacao'); 
     }
  ?>
-<button id="<?=$medico['Medico']['id']?>" onclick="chamada_novo_medico('<?=$medico['Medico']['id']?>')" class="btn btn-info text-dark mb-4">
-    Cadastrar médico
-</button>
+<a href="#" id="cadMedico" class="btn btn-info text-dark mb-4" onclick="newMedico()">
+    Novo médico
+</a>

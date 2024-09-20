@@ -3,7 +3,7 @@ class ConsultasController extends AppController
 {
     public function index()
     {
-        $this->layout='ajax';
+        $this->layout = 'ajax';
         $this->paginate=array(
             'limit'=>5,
             'order'=>array('Consultas.dia','ASC')
