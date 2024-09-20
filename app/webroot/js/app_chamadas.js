@@ -211,7 +211,7 @@ function cadPaciente() {
         data: data, 
         dataType: 'json', 
         success: function(data) {
-            chamada_pacientes();
+            console.log("foi");
         }
     });
 }
