@@ -3,7 +3,7 @@
         public function index() {
             $this->layout="ajax";
             $this->paginate=array(
-                'limit'=>5,
+                'limit'=>30,
                 'order'=>array('Medicos.nome','ASC')
             );
             $medicos=$this->paginate($this->Medicos);
@@ -16,9 +16,16 @@
             $this->layout="ajax";
             if ($this->request->is('post')) {
                 if ($this->Medico->save($this->request->data)) {
-                    $this->Flash->success('Medico cadastrado com sucesso!');
                     $this->redirect(array('action' => 'index'));
                 }
+            }
+        }
+        public function delete($id){
+            if (!$this->request->is('post')) {
+                throw new BadNotAllowedException();
+            }
+            if ($this->Consulta->delete($id)) {
+                $this->redirect(array('action' => 'index'));
             }
         }
         public $components=array('RequestHandler');

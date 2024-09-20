@@ -13,7 +13,7 @@
         <td>
             <?php
                 echo $convenio['Convenio']['nome']
-                ?>
+            ?>
         </td>
         <td>
             <!--
@@ -40,12 +40,7 @@
 <form class="form-group mt-2 mb-5">
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Nome do novo convênio" aria-label="Recipient"
-            aria-describedby="button-addon2">
-        <button class="btn btn-info" type="button" id="button-addon1">cadastrar novo convênio</button>
+            aria-describedby="button-addon2" id="convenioNome">
+        <button class="btn btn-info" type="button" id="button-addon1" onclick="cadConvenio()">cadastrar novo convênio</button>
     </div>
 </form>
-<?php
-//echo $this->Form->create('Convenio');
-//echo $this->Form->input('nome');
-//echo $this->Form->end('cadastrar novo convênio');
-?>

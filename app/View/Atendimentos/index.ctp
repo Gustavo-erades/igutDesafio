@@ -33,13 +33,7 @@
 <form class="form-group mt-2 mb-5">
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Nome do novo atendimento" aria-label="Recipient"
-            aria-describedby="button-addon2">
-        <button class="btn btn-info" type="button" id="button-addon1">cadastrar novo atendimento</button>
+            aria-describedby="button-addon2" id="atendimetoNome">
+        <button class="btn btn-info" type="button" id="button-addon1" onclick="cadAtendimento()">cadastrar novo atendimento</button>
     </div>
 </form>
-<?php
-//echo $this->Form->create('Atendimento');
-//echo $this->Form->input('nome');
-//echo $this->Form->end('cadastrar atendimento');
-//echo $this->Js->link("voltar",array('controller'=>'consultas','action'=>'index'),array('update','#content'));
-?>

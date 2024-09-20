@@ -22,7 +22,7 @@
 
 <div class="form-floating mb-3">
   <input type="select" class="form-control" id="atendimentosNome" placeholder="">
-  <label for="atendimentosNome">Paciente</label>
+  <label for="atendimentosNome">Atendimento</label>
 </div>
 
 <div class="form-floating mb-3">
@@ -30,16 +30,6 @@
   <label for="conveniosNome">Paciente</label>
 </div>
     
-<button class="btn btn-info" type="button">Agendar consulta</button>
+<button class="btn btn-info" type="button" onclick="cadConsultas()">Agendar consulta</button>
 
 </form>
-<?php 
-    //echo $this->Form->create('Consulta');
-    //echo $this->Form->input('dia',array('type'=>'date'));
-    //echo $this->Form->input('hora',array('type'=>'time')); 
-    //echo $this->Form->input('medico_id',array('type'=>'select','options'=>$medicos));
-    //echo $this->Form->input('paciente_id',array('type'=>'select','options'=>$pacientes));
-    //echo $this->Form->input('atendimento_id',array('type'=>'select','options'=>$atendimentos));
-    //echo $this->Form->input('convenio_id',array('type'=>'select','options'=>$convenios));
-    //echo $this->Form->end('Agendar Consulta');
-?>

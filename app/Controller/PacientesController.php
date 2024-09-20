@@ -3,7 +3,7 @@
         function index() {
             $this->layout='ajax';
             $this->paginate=array(
-                'limit'=>5,
+                'limit'=>40,
                 'order'=>array('Pacientes.nome'=>'ASC')
             );
             $pacientes=$this->paginate($this->Pacientes);
@@ -15,11 +15,8 @@
         public function new(){
             $this->layout='ajax';
             if ($this->request->is('post')) {
-                if ($this->Paciente->save($this->request->data)) {
-                    $this->Flash->success('Paciente cadastrado com sucesso!');
-                    $this->redirect(array('action' => 'index'));
-                }
+               $this->Paciente->save($this->request->data);
+               exit;
             }
         }
-        public $components=array('RequestHandler');
-    }
+}

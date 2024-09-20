@@ -1,3 +1,4 @@
+//paginação (resolver)
 $(document).ready(function () {
     $('.pagination a').on('click', function (e) {
         e.preventDefault();
@@ -17,7 +18,6 @@ $(document).ready(function () {
         );
     });
 });
-
 function chamada_medicos() {
     $.ajax({
         type: 'get',
@@ -49,7 +49,7 @@ function chamada_paciente(id) {
     var botaoId = id;
     $.ajax({
         type: 'get',
-        url: '/igutDesafio/pacientes/view/' + botaoId,
+        url: 'pacientes/view/' + botaoId,
         dataType: 'html',
         success: function (data) {
             $('#mainContent').html(data);
@@ -76,7 +76,7 @@ function chamada_novo_paciente(id) {
 function chamada_pacientes() {
     $.ajax({
         type: 'get',
-        url: '/igutDesafio/pacientes/index/',
+        url: 'pacientes/index/',
         dataType: 'html',
         success: function (data) {
             $('#mainContent').html(data);
@@ -155,6 +155,131 @@ function newMedico() {
             alert('Erro ao carregar consultas.');
         }
     })
+}
+function cadMedico() {
+    var medico = $('#medicoNome').val(); 
+    var crm = $('#medicoCrm').val();
+    var especialidade = $('#medicoEspecialidade').val();
+    var data = {
+        nome: medico,
+        crm: crm,
+        especialidade: especialidade
+    };
+    $.ajax({
+        type: 'POST',
+        url: 'medicos/new/',
+        data: data, 
+        dataType: 'json', 
+        success: function(response) {
+            if (response.success) {
+                console.log("funcionando");
+            } else {
+                alert(response.message); 
+            }
+        }
+    });
+}
+function delMedico(id) {
+    $.ajax({
+        type: 'DELETE',
+        url: 'medicos/new/',
+        data: id, 
+        dataType: 'json', 
+        success: function(response) {
+            if (response.success) {
+                console.log("funcionando");
+            } else {
+                alert(response.message); 
+            }
+        }
+    });
+}
+function cadPaciente() {
+    var paciente = $('#pacienteNome').val(); 
+    var cpf = $('#pacienteCpf').val();
+    var telefone = $('#pacienteTelefone').val();
+    var nascimento=$('pacienteNascimento').val();
+    var data = {
+        nome: paciente,
+        cpf: cpf,
+        telefone: telefone,
+        dt_nasc:nascimento
+    };
+    $.ajax({
+        type: 'POST',
+        url: 'pacientes/new/',
+        data: data, 
+        dataType: 'json', 
+        success: function(data) {
+            chamada_pacientes();
+        }
+    });
+}
+function cadAtendimento() {
+    var atendimento = $('#atendimetoNome').val();
+    var data = {
+        nome: atendimento
+    };
+    $.ajax({
+        type: 'POST',
+        url: 'atendimentos/index/',
+        data: data, 
+        dataType: 'json', 
+        success: function(response) {
+            if (response.success) {
+                console.log("funcionando");
+            } else {
+                alert(response.message); 
+            }
+        }
+    });
+}
+function cadConvenio(){
+    var convenio = $('#convenioNome').val();
+    var data = {
+        nome: convenio
+    };
+    $.ajax({
+        type: 'POST',
+        url: 'convenios/index/',
+        data: data, 
+        dataType: 'json', 
+        success: function(response) {
+            if (response.success) {
+                console.log("funcionando");
+            } else {
+                alert(response.message); 
+            }
+        }
+    });
+}
+function cadConsultas(){
+    var dia = $('#consultaDia').val();
+    var hora = $('#consultaTime').val();
+    var medico = $('#consultaTime').val();
+    var paciente = $('#consultaTime').val();
+    var atendimento = $('#consultaAtendimento').val();
+    var convenio = $('#consultaConvenio').val();
+    var data = {
+        nome: convenio,
+        hora:hora,
+        medico_id:medico,
+        paciente_id:paciente,
+        atendimento_id:atendimento
+    };
+    $.ajax({
+        type: 'POST',
+        url: 'convenios/index/',
+        data: data, 
+        dataType: 'json', 
+        success: function(response) {
+            if (response.success) {
+                console.log("funcionando");
+            } else {
+                alert(response.message); 
+            }
+        }
+    });
 }
 $('#getHome').on('click', getConsultas);
 $('#getMedicos').on('click', chamada_medicos);
